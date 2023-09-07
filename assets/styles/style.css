@@ -5,8 +5,15 @@ body {
 
 header {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 main {
@@ -62,5 +69,13 @@ button:hover {
 }
 
 #stop {
+    display: none;
+}
+
+#volume-on {
+    background-color: transparent;
+}
+
+#volume-off {
     display: none;
 }

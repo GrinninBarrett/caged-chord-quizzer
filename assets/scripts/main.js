@@ -5,7 +5,14 @@ const startButton = document.querySelector('#start');
 const stopButton = document.querySelector('#stop');
 const timeSelect = document.querySelector('#time-select');
 
+const volumeOn = document.querySelector('#volume-on');
+const volumeOff = document.querySelector('#volume-off');
+
+let volumePreference = localStorage.getItem('volumePreference') || "unmuted";
+
 const warning = document.querySelector('#warning');
+
+const drumStick = new Audio('https://www.fesliyanstudios.com/play-mp3/6814');
 
 let timeValue;
 let quizInterval;
@@ -52,12 +59,25 @@ function quiz() {
 
 
 function showQuiz() {
+    drumStick.play()
     let randomChord = chords[Math.floor(Math.random() * chords.length)];
     let randomShape = shapes[Math.floor(Math.random() * shapes.length)];
 
     chordEl.textContent = randomChord;
     shapeEl.textContent = randomShape;
     
+}
+
+function establishIcon() {
+    if (volumePreference === "muted") {
+        volumeOn.style.display = "none";
+        volumeOff.style.display = "block";
+        drumStick.muted = true;
+    } else {
+        volumeOff.style.display = "none";
+        volumeOn.style.display = "block";
+        drumStick.muted = false;
+    }
 }
 
 startButton.addEventListener('click', quiz);
@@ -68,3 +88,17 @@ stopButton.addEventListener('click', function() {
     chordEl.textContent = '';
     shapeEl.textContent = '';
 })
+
+volumeOn.addEventListener('click', function() {
+    volumePreference = "muted";
+    establishIcon()
+    localStorage.setItem('volumePreference', "muted")
+})
+
+volumeOff.addEventListener('click', function() {
+    volumePreference = "unmuted";
+    establishIcon()
+    localStorage.setItem('volumePreference', "unmuted")
+})
+
+establishIcon();
