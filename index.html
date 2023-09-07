@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAGED Chord Quizzer</title>
+    <link rel="stylesheet" href="./assets/styles/style.css"/>
+  </head>
+  <body>
+    <header>
+      <h1>CAGED Chord Quizzer</h1>
+    </header>
+    <main>
+        <section>
+            <article>
+              <h2>Chord:</h2>
+              <p id="chord"></p>
+            </article>
+            <article>
+              <h2>Shape:</h2>
+              <p id="shape"></p>
+            </article>
+          </section>
+
+          <p id="warning">Hey! You have to select a number of seconds!</p>
+
+          <select name="time" id="time-select">
+            <option value="">Number of seconds between chords:</option>
+            <option value="1000">1</option>
+            <option value="2000">2</option>
+            <option value="3000">3</option>
+            <option value="4000">4</option>
+            <option value="5000">5</option>
+            <option value="6000">6</option>
+            <option value="7000">7</option>
+            <option value="8000">8</option>
+            <option value="9000">9</option>
+            <option value="10000">10</option>
+          </select>
+
+          <button id="start">Start</button>
+          <button id="stop">Stop</button>
+
+    </main>
+    <script src="./assets/scripts/main.js"></script>
+  </body>
+</html>
