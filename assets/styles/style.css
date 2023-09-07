@@ -42,12 +42,13 @@ article p {
 }
 
 button {
-    padding: 8px;
+    padding: 8px 20px;
     background-color: rgb(11, 38, 11);
     color: white;
     cursor: pointer;
     border: none;
     margin: 25px auto;
+    border-radius: 5px;
 }
 
 button:hover {

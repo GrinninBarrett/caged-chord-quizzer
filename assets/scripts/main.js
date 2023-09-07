@@ -34,14 +34,15 @@ const shapes = [
 ]
 
 function quiz() {
-    startButton.style.display = "none";
-    stopButton.style.display = "block";
-    warning.style.visibility = "hidden";
     timeValue = timeSelect.value;
     if (!timeValue) {
         warning.style.visibility = "visible";
         return;
     }
+    startButton.style.display = "none";
+    stopButton.style.display = "block";
+    warning.style.visibility = "hidden";
+
 
     showQuiz();
     quizInterval = setInterval(showQuiz, timeValue);
