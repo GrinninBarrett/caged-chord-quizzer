@@ -101,4 +101,9 @@ volumeOff.addEventListener('click', function() {
     localStorage.setItem('volumePreference', "unmuted")
 })
 
+timeSelect.addEventListener('change', function() {
+    clearInterval(quizInterval);
+    quiz();
+})
+
 establishIcon();
