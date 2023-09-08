@@ -16,6 +16,7 @@ const drumStick = new Audio('https://www.fesliyanstudios.com/play-mp3/6814');
 
 let timeValue;
 let quizInterval;
+let quizStarted = false;
 
 const chords = [
     "C",
@@ -41,6 +42,7 @@ const shapes = [
 ]
 
 function quiz() {
+    quizStarted = true;
     timeValue = timeSelect.value;
     if (!timeValue) {
         warning.style.visibility = "visible";
@@ -82,6 +84,7 @@ function establishIcon() {
 
 startButton.addEventListener('click', quiz);
 stopButton.addEventListener('click', function() {
+    quizStarted = false;
     clearInterval(quizInterval);
     stopButton.style.display = "none";
     startButton.style.display = "block";
@@ -102,8 +105,10 @@ volumeOff.addEventListener('click', function() {
 })
 
 timeSelect.addEventListener('change', function() {
-    clearInterval(quizInterval);
-    quiz();
+    if (quizStarted) {
+        clearInterval(quizInterval);
+        quiz();
+    }
 })
 
 establishIcon();
